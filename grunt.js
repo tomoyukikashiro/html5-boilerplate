@@ -19,6 +19,13 @@ module.exports = function(grunt) {
     lint: {
       files: ['grunt.js', 'js/main.js']
     },
+    jshint: {
+      globals: {
+        window: true,
+        setTimeout: true,
+        setInterval: true
+      }
+    },
     concat: {
       dist: {
         src:['js/main.js'],
