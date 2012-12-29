@@ -11,6 +11,8 @@ I customized following…
 	* Grunt -> [node-build-script](https://github.com/h5bp/node-build-script)
 	* grunt-compass -> [kahlil/grunt-compass](https://github.com/kahlil/grunt-compass)
 	* grunt-growl -> [alextucker/grunt-growl](https://github.com/alextucker/grunt-growl)
+* Add test system
+  * testacular -> [testacular](http://vojtajina.github.com/testacular/)
 
 ## Build
 ### Development
