@@ -3,3 +3,6 @@ grunt.js
 .sass-cache
 .git*
 *.md
+testacular.conf.js
+package.json
+test

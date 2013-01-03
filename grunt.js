@@ -17,7 +17,9 @@ module.exports = function(grunt) {
 
     // lint javascript file
     lint: {
-      files: ['grunt.js', 'js/main.js']
+      files: [
+        'js/main.js'
+      ]
     },
     jshint: {
       globals: {
@@ -28,7 +30,7 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src:['js/main.js'],
+        src: '<config:lint.files>',
         dest: 'js/main-concat.js'
       }
     },
