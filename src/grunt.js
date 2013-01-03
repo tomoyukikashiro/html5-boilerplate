@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   var staging = 'build/',
-      output  = '../';
+      output  = 'output/';
 
   // Project configuration.
   grunt.initConfig({
@@ -87,14 +87,27 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.task.registerTask('deploy-copy', 'copy for deploy', function(){
+    var cb = this.async(),
+        ignores = ['.gitignore', '.git', '.buildignore', '.svn', '.svnignore'];
+
+    grunt.task.helper('copy', 'build/', '../', ignores, function(e){
+      if(e) {
+         grunt.log.error(e.stack || e.message);
+      } else {
+        grunt.log.ok();
+      }
+      cb(!e);
+    });
+  });
+
   // load Tasks
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('node-build-script');
   grunt.loadNpmTasks('grunt-compass');
   grunt.loadNpmTasks('grunt-growl');
 
   // regist
-  grunt.registerTask('deploy', 'copy');
+  grunt.registerTask('deploy', 'deploy-copy');
   grunt.registerTask('default', 'clean lint compass:dev growl:defaultTask');
   grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin html img growl:prodTask');
 };
