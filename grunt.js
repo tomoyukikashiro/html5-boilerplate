@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
 
-  var staging = 'build/',
-      output  = '../';
+  var src = 'src/',
+      staging = src + 'build/',
+      output  = './';
 
   // Project configuration.
   grunt.initConfig({
@@ -18,7 +19,7 @@ module.exports = function(grunt) {
     // lint javascript file
     lint: {
       files: [
-        'js/main.js'
+        src + 'js/main.js'
       ]
     },
     jshint: {
