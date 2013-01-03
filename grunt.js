@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   var staging = 'build/',
-      output  = '/tmp/h5bp';
+      output  = '../';
 
   // Project configuration.
   grunt.initConfig({
@@ -62,18 +62,6 @@ module.exports = function(grunt) {
             relativeassets: true
         }
     },
-    /*
-    copy: {
-      target: {
-        options: {
-          cwd: './'
-        },
-        files: {
-          '../': staging + '/**'
-        }
-      }
-    },
-    */
     usemin: {
       html: ['**/*.html']
     },
