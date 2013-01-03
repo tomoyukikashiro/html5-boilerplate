@@ -1,6 +1,7 @@
 node_modules/**
 grunt.js
 .sass-cache
+sass
 .git*
 *.md
 testacular.conf.js

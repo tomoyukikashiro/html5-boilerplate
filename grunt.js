@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   var staging = 'build/',
-      output  = 'output/';
+      output  = '/tmp/h5bp';
 
   // Project configuration.
   grunt.initConfig({
@@ -62,6 +62,18 @@ module.exports = function(grunt) {
             relativeassets: true
         }
     },
+    /*
+    copy: {
+      target: {
+        options: {
+          cwd: './'
+        },
+        files: {
+          '../': staging + '/**'
+        }
+      }
+    },
+    */
     usemin: {
       html: ['**/*.html']
     },
@@ -88,11 +100,13 @@ module.exports = function(grunt) {
   });
 
   // load Tasks
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('node-build-script');
   grunt.loadNpmTasks('grunt-compass');
   grunt.loadNpmTasks('grunt-growl');
 
   // regist
+  grunt.registerTask('deploy', 'copy');
   grunt.registerTask('default', 'clean lint compass:dev growl:defaultTask');
   grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin html img growl:prodTask');
 };
