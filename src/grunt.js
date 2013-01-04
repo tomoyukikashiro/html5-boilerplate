@@ -89,9 +89,13 @@ module.exports = function(grunt) {
 
   grunt.task.registerTask('deploy-copy', 'copy for deploy', function(){
     var cb = this.async(),
+        //dest = '/usr/local/apache2/htdocs/localhost.com/github/html5-boilerplate/',
+        dest = '/usr/local/apache2/htdocs/localhost.com/github/test/',
         ignores = ['.gitignore', '.git', '.buildignore', '.svn', '.svnignore'];
 
-    grunt.task.helper('copy', 'build/', '../', ignores, function(e){
+    grunt.file.setBase(process.cwd());
+
+    grunt.task.helper('copy', 'build/', dest, ignores, function(e){
       if(e) {
          grunt.log.error(e.stack || e.message);
       } else {
