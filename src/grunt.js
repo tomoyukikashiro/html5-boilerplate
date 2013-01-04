@@ -89,8 +89,7 @@ module.exports = function(grunt) {
 
   grunt.task.registerTask('deploy-copy', 'copy for deploy', function(){
     var cb = this.async(),
-        //dest = '/usr/local/apache2/htdocs/localhost.com/github/html5-boilerplate/',
-        dest = '/usr/local/apache2/htdocs/localhost.com/github/test/',
+        dest = 'TODO',
         ignores = ['.gitignore', '.git', '.buildignore', '.svn', '.svnignore'];
 
     grunt.file.setBase(process.cwd());
