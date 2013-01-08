@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-  var staging = 'build/',
+  var staging = 'staging/',
       output  = 'output/', // fake
       deploy = ''; // TODO
 
@@ -112,6 +112,6 @@ module.exports = function(grunt) {
 
   // regist
   grunt.registerTask('deploy', 'deploy-copy');
-  grunt.registerTask('default', 'clean lint compass:dev growl:defaultTask');
+  grunt.registerTask('default', 'clean mkdirs lint compass:dev growl:defaultTask');
   grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin html img growl:prodTask');
 };
