@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   var staging = 'staging/',
-      output  = 'output/', // fake
+      output  = '../htdocs',
       deploy = ''; // TODO
 
   // Project configuration.
@@ -72,6 +72,16 @@ module.exports = function(grunt) {
     img: {
       src: ['img/**/*']
     },
+    server: {
+      staging: {
+        port : 3000,
+        base : staging
+      },
+      output: {
+        port : 3001,
+        base : output
+      }
+    },
     growl : {
         defaultTask : {
             title : "Grunt default task",
@@ -95,7 +105,7 @@ module.exports = function(grunt) {
 
     grunt.file.setBase(process.cwd());
 
-    grunt.task.helper('copy', staging, dest, ignores, function(e){
+    grunt.task.helper('copy', staging, output, ignores, function(e){
       if(e) {
          grunt.log.error(e.stack || e.message);
       } else {
