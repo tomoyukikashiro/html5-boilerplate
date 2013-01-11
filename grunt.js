@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   var staging = 'build/',
-      output  = '../htdocs', //fake
+      output  = 'output', //fake
       deploy = '../htdocs'; // TODO
 
   // Project configuration.
