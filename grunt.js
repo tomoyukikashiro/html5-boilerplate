@@ -100,6 +100,10 @@ module.exports = function(grunt) {
       js: {
         files: ['js/*.js'],
         tasks: 'lint'
+      },
+      all: {
+        files: ['js/*.js', 'sass/*.scss'],
+        tasks: 'defalut'
       }
     }
   });
