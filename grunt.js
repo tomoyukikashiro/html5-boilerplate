@@ -94,15 +94,15 @@ module.exports = function(grunt) {
     },
     watch: {
       sass: {
-        files: ['sass/*.scss'],
+        files: ['sass/**/*.scss'],
         tasks: 'compass:dev'
       },
       js: {
-        files: ['js/*.js'],
+        files: ['js/**/*.js'],
         tasks: 'lint'
       },
       all: {
-        files: ['js/*.js', 'sass/*.scss'],
+        files: ['js/**/*.js', 'sass/**/*.scss'],
         tasks: 'defalut'
       }
     }
