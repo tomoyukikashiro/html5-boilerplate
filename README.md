@@ -33,6 +33,12 @@ Execute default task.
   grunt watch:js
   ```
 
+* watch all
+  ```shell
+  grunt watch:all
+  ```
+
+
 ### Production
 Execute prod task.
 
