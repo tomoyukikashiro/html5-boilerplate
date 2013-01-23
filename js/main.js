@@ -2,7 +2,7 @@
 
 	'use strict';
 
-	// document ready
+	// document  ready
 	$(function(){
 	});
 

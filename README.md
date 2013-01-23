@@ -23,9 +23,14 @@ Execute default task.
   grunt
   ```
 
-* watch
+* watch sass
   ```shell
-  grunt watch
+  grunt watch:sass
+  ```
+
+* watch js
+  ```shell
+  grunt watch:js
   ```
 
 ### Production

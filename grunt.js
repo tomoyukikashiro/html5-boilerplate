@@ -93,8 +93,14 @@ module.exports = function(grunt) {
         }
     },
     watch: {
-      files: ['js/*.js', 'sass/*.scss'],
-      tasks: 'default'
+      sass: {
+        files: ['sass/*.scss'],
+        tasks: 'compass:dev'
+      },
+      js: {
+        files: ['js/*.js'],
+        tasks: 'lint'
+      }
     }
   });
 
@@ -104,7 +110,7 @@ module.exports = function(grunt) {
         ignores = ['.gitignore', '.git', '.buildignore', '.svn', '.svnignore', 'sass'];
 
     grunt.file.setBase(process.cwd());
-
+  
     grunt.task.helper('copy', staging, output, ignores, function(e){
       if(e) {
          grunt.log.error(e.stack || e.message);

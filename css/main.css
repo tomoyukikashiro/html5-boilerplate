@@ -344,3 +344,8 @@ textarea {
     page-break-after: avoid;
   }
 }
+/* line 3, ../sass/_screen.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+}
