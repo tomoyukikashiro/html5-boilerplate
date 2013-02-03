@@ -133,5 +133,5 @@ module.exports = function(grunt) {
   // regist
   grunt.registerTask('deploy', 'deploy-copy');
   grunt.registerTask('default', 'clean mkdirs lint compass:dev growl:defaultTask');
-  grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin html img growl:prodTask');
+  grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin img growl:prodTask');
 };
