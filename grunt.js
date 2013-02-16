@@ -25,10 +25,23 @@ module.exports = function(grunt) {
       ]
     },
     jshint: {
-      globals: {
-        window: true,
-        setTimeout: true,
-        setInterval: true
+      dev: {
+        globals: {
+          window: true,
+          setTimeout: true,
+          setInterval: true,
+          Global: true,
+          console: true,
+          "debugger": true
+        }
+      },
+      prod: {
+        globals: {
+          window: true,
+          setTimeout: true,
+          setInterval: true,
+          Global: true
+        }
       }
     },
     concat: {
@@ -122,6 +135,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-growl');
 
   // regist
-  grunt.registerTask('default', 'clean mkdirs lint compass:dev growl:defaultTask refresh');
-  grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin img growl:prodTask refresh');
+  grunt.registerTask('default', 'clean mkdirs lint:dev compass:dev growl:defaultTask refresh');
+  grunt.registerTask('prod', 'clean mkdirs lint:prod concat min compass:prod usemin img growl:prodTask refresh');
 };
