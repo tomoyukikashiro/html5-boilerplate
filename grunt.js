@@ -122,7 +122,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-growl');
 
   // regist
-  grunt.registerTask('deploy', 'deploy-copy');
   grunt.registerTask('default', 'clean mkdirs lint compass:dev growl:defaultTask refresh');
   grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin img growl:prodTask refresh');
 };
