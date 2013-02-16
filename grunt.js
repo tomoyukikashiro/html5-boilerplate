@@ -4,7 +4,10 @@ module.exports = function(grunt) {
       output  = 'output', //fake
       deploy = '../htdocs', // 
       stgPort = 3000,
-      opPort = 3001;
+      opPort = 3001,
+      lintFiles = [
+        'js/main.js'
+      ];
 
   // Project configuration.
   grunt.initConfig({
@@ -20,9 +23,11 @@ module.exports = function(grunt) {
 
     // lint javascript file
     lint: {
-      files: [
-        'js/main.js'
-      ]
+      //files: [
+      //  'js/main.js'
+      //],
+      dev: lintFiles,
+      prod: lintFiles
     },
     jshint: {
       dev: {
@@ -46,7 +51,7 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: '<config:lint.files>',
+        src: lintFiles,
         dest: 'js/main-concat.js'
       }
     },
