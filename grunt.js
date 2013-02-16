@@ -2,7 +2,9 @@ module.exports = function(grunt) {
 
   var staging = 'build/',
       output  = 'output', //fake
-      deploy = '../htdocs'; // TODO
+      deploy = '../htdocs', // 
+      stgPort = 3000,
+      opPort = 3001;
 
   // Project configuration.
   grunt.initConfig({
@@ -74,11 +76,11 @@ module.exports = function(grunt) {
     },
     server: {
       staging: {
-        port : 3000,
+        port : stgPort,
         base : staging
       },
       output: {
-        port : 3001,
+        port : opPort,
         base : output
       }
     },
@@ -108,21 +110,10 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.task.registerTask('deploy-copy', 'copy for deploy', function(){
-    var cb = this.async(),
-        dest = deploy,
-        ignores = ['.gitignore', '.git', '.buildignore', '.svn', '.svnignore', 'sass'];
-
-    grunt.file.setBase(process.cwd());
-  
-    grunt.task.helper('copy', staging, output, ignores, function(e){
-      if(e) {
-         grunt.log.error(e.stack || e.message);
-      } else {
-        grunt.log.ok();
-      }
-      cb(!e);
-    });
+  grunt.task.registerTask('refresh', 'reload Google Chrome (OS X)', function(){
+      var exec = require('child_process').exec,
+          cmd = 'osascript -e \'tell application "Google Chrome" to reload active tab of window 1\'';
+      exec(cmd);
   });
 
   // load Tasks
@@ -132,6 +123,6 @@ module.exports = function(grunt) {
 
   // regist
   grunt.registerTask('deploy', 'deploy-copy');
-  grunt.registerTask('default', 'clean mkdirs lint compass:dev growl:defaultTask');
-  grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin img growl:prodTask');
+  grunt.registerTask('default', 'clean mkdirs lint compass:dev growl:defaultTask refresh');
+  grunt.registerTask('prod', 'clean mkdirs lint concat min compass:prod usemin img growl:prodTask refresh');
 };
