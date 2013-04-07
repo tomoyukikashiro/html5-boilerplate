@@ -62,6 +62,16 @@ module.exports = function(grunt) {
         files: ['js/**/*.js', 'sass/**/*.scss'],
         tasks: 'default'
       }
+    },
+    coffee: {
+      compile: {
+        options: {
+          join: true
+        },
+        files: {
+          '../js/app_concat.js': lintFiles
+        }
+      }
     }
   });
 
@@ -71,6 +81,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  //grunt.loadNpmTasks('grunt-contrib-coffee');
 
   // regist
   grunt.registerTask('default', ['jshint', 'compass', 'concat']);
