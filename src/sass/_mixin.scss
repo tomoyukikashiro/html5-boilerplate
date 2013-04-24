@@ -1,28 +1,29 @@
-
-@mixin absolute($top,$right,$bottom,$left) {
-  position: absolute;
-  @if $top { top: $top; }
-  @if $right { right: $right; }
-  @if $bottom { bottom: $bottom; }
-  @if $left { left: $left; }
-}
-@mixin fixed($top,$right,$left,$bottom) {
-  position: fixed;
-  @if $top { top: $top; }
-  @if $right { right: $right; }
-  @if $bottom { bottom: $bottom; }
-  @if $left { left: $left; }
-}
-@mixin opacity($value) {
-    opacity: $value;
-  filter: alpha(opacity=$value * 100);
-  *zoom: 1;
+@mixin position($position, $keyword, $value1, $value2) {
+  position: $position;
+  @if $keyword == tr {
+    top: $value1;
+    right: $value2;
+  } @else if $keyword == tl {
+    top: $value1;
+    left: $value2;
+  } @else if $keyword == br {
+    bottom: $value1;
+    right: $value2;
+  } @else if $keyword == bl {
+    bottom: $value1;
+    left: $value2;
+  }
 }
 @mixin retina_background($url, $option) {
   background: image-url($url) + " #{$option}";
-  background-size: image-width($url) / 2 image-height($url) / 2;  
+  background-size: image-width($url) / 2 image-height($url) / 2;
 }
-
+@mixin ir($width, $height, $url) {
+  width: $width;
+  height: $height;
+  @extend %ir;
+  background: url($url) no-repeat center center;
+}
 @mixin list_deco($url,$top,$left,$width,$height){
   display: block;
   position: absolute;
