@@ -34,3 +34,23 @@
   left: $left;
   background: image-url($url) no-repeat top left;
 }
+@mixin sprite_img($map, $name, $map_url, $max_width) {
+    background-image: $map_url;
+    background-repeat: no-repeat;
+    display: block;
+    height: image-height(sprite-file($map_url, $name));
+    width: image-width(sprite-file($map_url, $name));
+    $ypos: round(nth(sprite-position($map_url, $name), 2));
+    background-position: 0 $ypos;
+    @include background-size($max_width auto);
+}
+@mixin sprite_img_retina($map, $name, $map_url, $max_width) {
+    background-image: $map_url;
+    background-repeat: no-repeat;
+    display: block;
+    height: image-height(sprite-file($map_url, $name)) / 2;
+    width: image-width(sprite-file($map_url, $name)) / 2;
+    $ypos: round(nth(sprite-position($map_url, $name), 2) / 2);
+    background-position: 0 $ypos;
+    @include background-size(($max_width / 2) auto);
+}
