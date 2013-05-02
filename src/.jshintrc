@@ -1,0 +1,10 @@
+{
+  "strict": true,
+  "indent": 2,
+  "maxlen": 80,
+  "unused": true,
+  "undef": true,
+  "browser": true,
+  "devel": true,
+  "debug": true
+}
