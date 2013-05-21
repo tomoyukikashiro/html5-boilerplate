@@ -1,3 +1,11 @@
+@mixin position-center($width, $height) {
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	@if $width  != '' { margin-left: -$width / 2; }
+	@if $height != '' { margin-top: -$height / 2; }
+}
+
 @mixin position($position, $keyword, $value1, $value2) {
   position: $position;
   @if $keyword == tr {
