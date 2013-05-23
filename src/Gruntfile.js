@@ -78,6 +78,14 @@ module.exports = function(grunt) {
         target : TARGET_HTML,
         include: TARGET_JS
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        runnerPort: 9999,
+        singleRun: true,
+        browsers: ['PhantomJS']
+      }
     }
   });
 
@@ -88,6 +96,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-unite-coffee');
+  grunt.loadNpmTasks('grunt-karma');
 
   // regist for js
   //grunt.registerTask('default', ['jshint', 'compass', 'concat:dev']);
