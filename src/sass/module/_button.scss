@@ -1,0 +1,17 @@
+/*
+# Button
+## Button base style
+add pointer style and modify a tag style in button
+```
+    <div class="button"><a href="#">Base button</a></div>
+```
+ */
+.button {
+    cursor: pointer;
+    min-width: 40px;
+    min-height: 40px;
+    & > a {
+        height: 100%;
+        display: inline-block;
+    }
+}

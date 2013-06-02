@@ -49,6 +49,22 @@ module.exports = function(grunt) {
         }
       }
     },
+    styleguide:{
+      styledocco: {
+        options: {
+          framework: {
+            name:'styledocco'
+          },
+          name: 'Style Guide',
+          template: {
+            include: ['plugin.css', 'app.js']
+          }
+        },
+        files: {
+          'docs': 'sass/**/*.scss'
+        }
+      }
+    },
     watch: {
       sass: {
         files: ['sass/**/*.scss'],
@@ -97,6 +113,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-unite-coffee');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-styleguide');
 
   // regist for js
   //grunt.registerTask('default', ['jshint', 'compass', 'concat:dev']);
