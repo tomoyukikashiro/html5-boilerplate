@@ -1,3 +1,11 @@
+@mixin position-center($width, $height) {
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	@if $width  != '' { margin-left: -$width / 2; }
+	@if $height != '' { margin-top: -$height / 2; }
+}
+
 @mixin position($position, $keyword, $value1, $value2) {
   position: $position;
   @if $keyword == tr {
@@ -16,11 +24,11 @@
 }
 @mixin retina_background($url, $option) {
   background: image-url($url) + " #{$option}";
-  background-size: image-width($url) / 2 image-height($url) / 2;
+  background-size: round(image-width($url) / 2) round(image-height($url) / 2);
 }
-@mixin ir($width, $height, $url) {
-  width: $width;
-  height: $height;
+@mixin ir($url) {
+  width: round(image-width($url);
+  height: round(image-height($url);
   @extend %ir;
   background: url($url) no-repeat center center;
 }
