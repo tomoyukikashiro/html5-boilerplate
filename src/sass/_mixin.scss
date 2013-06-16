@@ -27,8 +27,8 @@
   background-size: round(image-width($url) / 2) round(image-height($url) / 2);
 }
 @mixin ir($url) {
-  width: round(image-width($url);
-  height: round(image-height($url);
+  width: round(image-width($url));
+  height: round(image-height($url));
   @extend %ir;
   background: url($url) no-repeat center center;
 }
